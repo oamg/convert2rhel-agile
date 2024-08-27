@@ -1,0 +1,24 @@
+name: Trigger Role Rotation Script
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "00 18 * * fri"
+jobs:
+  rotate:
+    name: Rotate weekly roles
+    # To not run in forks
+    if: github.repository_owner == 'oamg'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          cache: "pip"
+      - name: Install requirements
+        run: pip install -r requirements.txt
+      - name: Clone weekly roles
+        env:
+          TOKEN: ${{ secrets.RELEASEBOT_GITHUB_TOKEN }}
+        run: python clone_roles.py
