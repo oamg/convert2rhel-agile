@@ -12,6 +12,7 @@ PEOPLE = {
     "aanglin",
     "ahosek",
     "afedorov",
+    "fgustavs",
     "rolivier",
     "mbocek",
 }
