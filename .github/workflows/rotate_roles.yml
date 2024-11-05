@@ -2,8 +2,8 @@ name: Trigger Role Rotation Script
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "00 18 * * fri"
+ # schedule:
+    #- cron: "00 18 * * fri"
 jobs:
   rotate:
     name: Rotate weekly roles
